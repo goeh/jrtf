@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+version = '0.8'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'jRTF', 'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
