@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2014 Christian Ullenboom 
+ * Copyright (c) 2010-2014 Christian Ullenboom
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -44,11 +44,12 @@ public class RtfInfo
   {
     this.rtf = rtf;
   }
-  
+
   /*
    * <info> := '{' <title>? &
    *           <subject>? &
    *           <author>? &
+   *           <company>? &
    *           <operator>? &
    *           <keywords>? &
    *           <comment>? &
@@ -105,5 +106,16 @@ public class RtfInfo
   {
     // <author> '{' \author #PCDATA '}'
     return new RtfInfo( "{\\author " + Rtf.asRtf( author ) + "}" );
+  }
+
+  /**
+   * Sets the company/organization of this document.
+   * @param company Company.
+   * @return New RtfInfo object.
+   */
+  public static RtfInfo company( String company )
+  {
+    // <company> '{' \company #PCDATA '}'
+    return new RtfInfo( "{\\company " + Rtf.asRtf( company ) + "}" );
   }
 }
